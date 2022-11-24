@@ -1,0 +1,17 @@
+[
+    {
+      "id": "637f52641fa1adb748e6a3dc",
+      "picture": "https://images.unsplash.com/photo-1509741102003-ca64bfe5f069?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8YXBwbGUlMjBpcGhvbmV8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60",
+      "title": "Apple"
+    },
+    {
+      "id": "637f526408118e92d6b9da22",
+      "picture": "https://images.unsplash.com/photo-1591122947157-26bad3a117d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+      "title": "Samsunag"
+    },
+    {
+      "id": "637f52641f5c542feac65b3b",
+      "picture": "https://images.unsplash.com/photo-1527747367590-09565c700ddd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+      "title": "OnePlus"
+    }
+  ]
