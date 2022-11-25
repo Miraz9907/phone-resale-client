@@ -1,17 +1,62 @@
 [
-    {
-      "id": "637f52641fa1adb748e6a3dc",
-      "picture": "https://images.unsplash.com/photo-1509741102003-ca64bfe5f069?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8YXBwbGUlMjBpcGhvbmV8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60",
-      "title": "Apple"
-    },
-    {
-      "id": "637f526408118e92d6b9da22",
-      "picture": "https://images.unsplash.com/photo-1591122947157-26bad3a117d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-      "title": "Samsunag"
-    },
-    {
-      "id": "637f52641f5c542feac65b3b",
-      "picture": "https://images.unsplash.com/photo-1527747367590-09565c700ddd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-      "title": "OnePlus"
-    }
-  ]
+  {
+    "picture": "https://i.ibb.co/yRggH6v/apple-iphone-13-pro-max.jpg",
+    "category_id":"637fa6309f0507978855b653",
+    "name": "Apple iPhone 13 pro max",
+    "location": "Uttara",
+    "resalePrice": "$800",
+    "originalPrice": "$1000",
+    "usedYear": 1.5,
+    "sellerName": "Naimul Huda"
+  },
+  {
+    "picture": "https://i.ibb.co/R76KCvX/iphone12-pro-max.jpg",
+    "category_id":"637fa6309f0507978855b653",
+    "name": "Apple iPhone 12 pro max",
+    "location": "Mirpur",
+    "resalePrice": "$700",
+    "originalPrice": "$1000",
+    "usedYear": 2,
+    "sellerName": "Dewan Babri"
+  },
+  {
+    "picture": "https://i.ibb.co/zmK1LLg/s21.jpg",
+    "category_id":"637fa6309f0507978855b654",
+    "name": "Galaxy S21 FE 5G",
+    "location": "Dhanmondhi",
+    "resalePrice": "$700",
+    "originalPrice": "$900",
+    "usedYear": 1,
+    "sellerName": "Schneider Abbott"
+  },
+  {
+    "picture": "https://i.ibb.co/xYBkGbf/Samsung-Galaxy-Note-20.jpg",
+    "category_id":"637fa6309f0507978855b654",
+    "name": "Samsung Galaxy note 20",
+    "location": "Banani",
+    "resalePrice": "$1000",
+    "originalPrice": "$1200",
+    "usedYear": 1,
+    "sellerName": "Joy Stanley"
+  },
+  {
+    "picture": "https://i.ibb.co/kxLVNnF/Oneplus-8-Pro-ultimate-blue.jpg",
+    "category_id":"637fa6309f0507978855b655",
+    "name": "OnePlus 8 Pro",
+    "location": "Khilkhet",
+    "resalePrice": "$450",
+    "originalPrice": "$500",
+    "usedYear": 2,
+    "sellerName": "Deborah Cortez"
+  },
+  {
+    "picture": "https://i.ibb.co/VMQLDYx/One-Plus-9-Pro-Pine-Green.jpg",
+    "category_id":"637fa6309f0507978855b655",
+    "name": "OnePlus 9 ",
+    "location": "Framgate",
+    "resalePrice": "$480",
+    "originalPrice": "$550",
+    "usedYear": 1.7,
+    "sellerName": "Kaitlin Strong"
+  }
+]
