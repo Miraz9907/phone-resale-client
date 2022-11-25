@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Categories = ({allcategory}) => {
-    console.log(allcategory);
+    // console.log(allcategory);
     const {picture,title,_id} = allcategory
     return (
 
@@ -11,7 +11,7 @@ const Categories = ({allcategory}) => {
         <figure>
           <img className="" src={picture} alt="Shoes" />
         </figure>
-        <div className="card-body">
+        <div className="card-body text-center">
           <h1 className="card-title text-center">{title}</h1>
         </div>
       </div>

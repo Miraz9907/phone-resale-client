@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import SingleCategory from '../SingleCategory/SingleCategory';
 
 const Category = () => {
     const params = useParams();
@@ -12,8 +13,14 @@ const Category = () => {
         .then(data => setCategory(data))
     },[id]);
     return (
-        <div>
-            <h2>This is category details: {category.length}</h2>
+        <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+            
+            {
+                category.map(singleCategory => <SingleCategory
+                key={singleCategory._id}
+                singleCategory = {singleCategory}
+                ></SingleCategory>)
+            }
         </div>
     );
 };

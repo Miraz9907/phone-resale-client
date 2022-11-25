@@ -7,7 +7,8 @@
     "resalePrice": "$800",
     "originalPrice": "$1000",
     "usedYear": 1.5,
-    "sellerName": "Naimul Huda"
+    "sellerName": "Naimul Huda",
+    "postedTime": "2022-02-09T12:52:04 -06:00"
   },
   {
     "picture": "https://i.ibb.co/R76KCvX/iphone12-pro-max.jpg",
@@ -17,7 +18,8 @@
     "resalePrice": "$700",
     "originalPrice": "$1000",
     "usedYear": 2,
-    "sellerName": "Dewan Babri"
+    "sellerName": "Dewan Babri",
+    "postedTime": "2022-02-41T12:52:04 -09:00"
   },
   {
     "picture": "https://i.ibb.co/zmK1LLg/s21.jpg",
@@ -27,7 +29,8 @@
     "resalePrice": "$700",
     "originalPrice": "$900",
     "usedYear": 1,
-    "sellerName": "Schneider Abbott"
+    "sellerName": "Schneider Abbott",
+    "postedTime": "2022-03-19T12:52:04 -06:00"
   },
   {
     "picture": "https://i.ibb.co/xYBkGbf/Samsung-Galaxy-Note-20.jpg",
@@ -37,7 +40,8 @@
     "resalePrice": "$1000",
     "originalPrice": "$1200",
     "usedYear": 1,
-    "sellerName": "Joy Stanley"
+    "sellerName": "Joy Stanley",
+    "postedTime": "2022-06-54T12:52:04 -06:00"
   },
   {
     "picture": "https://i.ibb.co/kxLVNnF/Oneplus-8-Pro-ultimate-blue.jpg",
@@ -47,7 +51,8 @@
     "resalePrice": "$450",
     "originalPrice": "$500",
     "usedYear": 2,
-    "sellerName": "Deborah Cortez"
+    "sellerName": "Deborah Cortez",
+    "postedTime": "2022-08-33T12:52:04 -8:00"
   },
   {
     "picture": "https://i.ibb.co/VMQLDYx/One-Plus-9-Pro-Pine-Green.jpg",
@@ -57,6 +62,7 @@
     "resalePrice": "$480",
     "originalPrice": "$550",
     "usedYear": 1.7,
-    "sellerName": "Kaitlin Strong"
+    "sellerName": "Kaitlin Strong",
+    "postedTime": "2022-07-57T12:52:04 -07:00"
   }
 ]
