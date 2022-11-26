@@ -1,16 +1,18 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link} from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const SignUp = () => {
 
     const {register, formState: {errors}, handleSubmit} = useForm();
     const {createUser,updateUser} = useContext(AuthContext);
+    const [signUpError, setSignUpError] = useState('');
+    const navigate = useNavigate();
     
 
     const handleSignUp = (data) =>{
-        console.log(data);
+        setSignUpError('');
         createUser(data.email, data.password)
         .then(result => {
             const user = result.user;
@@ -19,10 +21,15 @@ const SignUp = () => {
                 displayName: data.name
             }
             updateUser(userInfo)
-            .then(() =>{})
+            .then(() =>{
+                navigate('/');
+            })
             .catch(err => console.log(err))
         })
-        .catch(error => console.log(error));
+        .catch(error => {
+            console.log(error);
+            setSignUpError(error.message);
+        });
     }
    
     return (
@@ -59,6 +66,7 @@ const SignUp = () => {
             
             </div>
           <input className="btn btn-primary w-full mt-5" value="Login" type="submit" />
+          {signUpError && <p className="text-red-600">{signUpError}</p>}
         </form>
         <p>Already have an account? <Link className="text-green-400" to='/login'>Please Login</Link></p>
         <div className="divider">OR</div>
