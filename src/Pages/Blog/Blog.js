@@ -17,8 +17,8 @@ const Blog = () => {
                         What are the different ways to manage a state in a React application?
                         </h2>
                         <p className="mb-5 font-normal text-black">
-                            <strong>SQL</strong> These are RELATIONAL DATABASE MANAGEMENT SYSTEM (RDBMS). These databases have fixed or static or predefined schema. SQL database are Vertically Scalable and Its follows ACID property. The SQL databases are best suited for complex queries. <br /> <strong>Example</strong> MySQL, PostgreSQL, Oracle, MS-SQL Server etc. <br />
-                            <strong>NoSQL</strong> These are Non-relational or distributed database system. NoSQL have dynamic schema. NoSQL databases are Horizontally scalable. 	Follows CAP(consistency, availability, partition tolerance. These databases are not so good for complex queries <br /> <strong>Example</strong> MongoDB, GraphQL, HBase, Neo4j, Cassandra etc. <br />
+                            <strong>State Management</strong> React state management is a process for managing the data that React components need in order to render themselves. This data is typically stored in the component's state object. When the state object changes, the component will re-render itself. React state management is basically half of a React app<br />
+                            <strong>Types</strong> The Four Kinds of React State to Manage<br /> 1. Local state. <br/> 2. Global state. <br /> 3. Server state. <br /> 4. URL state. <br /> React's useState is the best option for local state management.
                         </p>
                     </article>
                     <article className="p-6 rounded-lg border shadow-md ">
@@ -26,7 +26,7 @@ const Blog = () => {
                         How does prototypical inheritance work?
                         </h2>
                         <p className="mb-5 font-normal text-black">
-                            <strong>JWT</strong> stands for JSON Wed Token. It is An open standard (RFC 7519) for securely transmitting information between parties as JSON object. It is compact, readable and digitally signed using a private key/ or a public key pair by the Identity Provide. WTs are a good way of securely transmitting information between parties because they can be signed, which means you can be sure that the senders are who they say they are
+                            <strong>prototypical inheritance</strong> In JavaScript, an object can inherit properties of another object. The object from where the properties are inherited is called the prototype. The Prototypal Inheritance is a feature in javascript used to add methods and properties in objects. It is a method by which an object can inherit the properties and methods of another object. Traditionally, in order to get and set the [[Prototype]] of an object, we use Object. getPrototypeOf and Object.
                         </p>
                     </article>
                     <article className="p-6 rounded-lg border shadow-md ">
@@ -34,8 +34,8 @@ const Blog = () => {
                         What is a unit test? Why should we write unit tests?
                         </h2>
                         <p className="mb-5 font-normal text-black">
-                            <strong>javascript</strong> Javascript is a Scripting language. It is mostly abbreviated as JS. It can be said that Javascript is the updated version of the ECMA script. Javascript is a high-level programming language that uses the concept of Oops but it is based on prototype inheritance <br />
-                            <strong>NodeJs</strong> NodeJS is a cross-platform and opensource Javascript runtime environment that allows the javascript to be run on the server-side. Nodejs allows Javascript code to run outside the browser. Nodejs comes with a lot of modules and mostly used in web development. <br />
+                            <strong>Unit Test</strong> Unit testing is testing the smallest testable unit of an application. It is done during the coding phase by the developers. To perform unit testing, a developer writes a piece of code (unit tests) to verify the code to be tested (unit) is correct. <br />
+                            Unit testing ensures that all code meets quality standards before it's deployed. This ensures a reliable engineering environment where quality is paramount. Over the course of the product development life cycle, unit testing saves time and money, and helps developers write better code, more efficiently.
                         </p>
                     </article>
                     <article className="p-6 rounded-lg border shadow-md ">
@@ -43,8 +43,9 @@ const Blog = () => {
                         React vs. Angular vs. Vue?
                         </h2>
                         <p className="mb-5 font-normal text-black">
-                        As is, node. js can process upwards of 1000 requests per second and speed limited only to the speed of your network card. Note that it's 1000 requests per second not clients connected simultaneously. It can handle the 10000 simultaneous clients without issue.
-                        They handle 40K requests per second having Node.
+                       <strong>React </strong> is the JavaScript library of User Interfaces. It is build single-page applications and also allows you to create reusable UI components. It does not follow any specific pattern, developers have the freedom to choose any design pattern. It begins with a single root component. <br />
+                       <strong>Angular </strong>  developed by Google, was released in the year 2010. It is a TypeScript-based framework that uses a regular DOM. Angular follows MVC (Model-View-Controller) architecture, also you don’t have restrictions in following only MVC architecture. Since Angular is also component-based. <br/>
+                       <strong>Vue </strong> was developed by a former Google employee and was released in the year 2014. It was developed to make the best version of Angular and make a custom tool. It is used for developing single-page engaging and high-quality web applications. Vue has become so popular these days and it is one of the hottest topics in terms of technology <br />
                         </p>
                     </article>
                 </div>
