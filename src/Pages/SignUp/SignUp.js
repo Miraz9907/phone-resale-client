@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const SignUp = () => {
 
     const {register, formState: {errors}, handleSubmit} = useForm();
     const {createUser,updateUser} = useContext(AuthContext);
+    
 
     const handleSignUp = (data) =>{
         console.log(data);
@@ -23,6 +24,7 @@ const SignUp = () => {
         })
         .catch(error => console.log(error));
     }
+   
     return (
         <div className="h-[500px] flex justify-center items-center">
       <div className="w-96 p-7">
@@ -50,8 +52,7 @@ const SignUp = () => {
 
             <div className="form-control w-full max-w-xs mt-3 bordered">
             <select className="bordered" {...register("userType", { required: "Selected UserType" })}>
-                <option value="">Select User Type</option>
-                <option value="Buyer">Buyer</option>
+                <option selected value="Buyer">Buyer</option>
                 <option value="Seller">Seller</option>
             </select>
             {errors.userType && <p className="text-red-600 font-semibold">{errors.userType?.message}</p>}
