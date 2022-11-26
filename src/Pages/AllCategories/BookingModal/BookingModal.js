@@ -2,10 +2,10 @@ import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../../contexts/AuthProvider';
 
-const BookingModal = ({phoneModel,setPhoneModel}) => {
+const BookingModal = ({phoneModel,setPhoneModel, refetch}) => {
     const {user} = useContext(AuthContext);
     console.log(user);
-    const {name,resalePrice,} = phoneModel;
+    const {name,resalePrice,picture} = phoneModel;
 
     const handleBooking = event =>{
         event.preventDefault();
@@ -13,6 +13,7 @@ const BookingModal = ({phoneModel,setPhoneModel}) => {
         const name = form.name.value;
         const email = form.email.value;
         const model = form.model.value;
+        const picture = form.image.value;
         const price = form.price.value;
         const phone = form.phone.value;
         const location = form.location.value;
@@ -21,6 +22,7 @@ const BookingModal = ({phoneModel,setPhoneModel}) => {
             name,
             email,
             model,
+            picture,
             price,
             phone,
             location,
@@ -38,6 +40,7 @@ const BookingModal = ({phoneModel,setPhoneModel}) => {
             if(data.acknowledged){
                 setPhoneModel(null);
                 toast.success("Your booking is confirmed");
+                refetch();
             }
         })
     }
@@ -52,9 +55,10 @@ const BookingModal = ({phoneModel,setPhoneModel}) => {
                     <input name='name' type="text" value={user?.displayName} className="input w-full input-bordered" readOnly />
                     <input name='email' type="email" value={user?.email} className="input w-full input-bordered" readOnly />
                     <input name='model' type="text" value={name} className="input w-full input-bordered" readOnly/>
+                    <input name='image' type="text" value={picture} className="input w-full input-bordered" readOnly/>
                     <input name='price' type="text" value={resalePrice} className="input w-full input-bordered" readOnly />
-                    <input name='phone' type="text" placeholder="Your Phone Number" className="input w-full input-bordered" />
-                    <input name='location' type="text" placeholder="meeting location" className="input w-full input-bordered" />
+                    <input name='phone' type="text" placeholder="Your Phone Number" className="input w-full input-bordered" required/>
+                    <input name='location' type="text" placeholder="meeting location" className="input w-full input-bordered" required />
                     <br />
                     <input className='btn btn-primary w-full ' type="submit" value="Submit" />
                     </form>

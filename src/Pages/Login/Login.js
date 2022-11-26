@@ -1,6 +1,7 @@
 import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 
@@ -21,7 +22,9 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                navigate(from, {replace: true})
+                navigate(from, {replace: true});
+
+                
             })
             .catch(error => {
                 console.log(error)
@@ -34,6 +37,29 @@ const Login = () => {
         const user = result.user;
         console.log(user);
         navigate(from, {replace: true});
+        const name = user.displayName;
+                const email = user.email;
+                const role = 'Buyer';
+
+                const loginUser ={
+                  name,
+                  email,
+                  role,
+                }
+                fetch('http://localhost:5000/login',{
+                  method: 'PUT',
+                  headers: {
+                    'content-type': 'application/json'
+                  },
+                  body: JSON.stringify(loginUser)
+                })
+                .then(res => res.json())
+                .then(data => {
+                  console.log(data);
+                  if(data.modifiedCount > 0){
+                    toast.success("Your are login login successfully");
+                  }
+                })
       })
       .catch(error => console.log(error));
 
@@ -61,16 +87,6 @@ const Login = () => {
                 <label className="label"><span className="label-text">Forget Password</span></label>
                 {errors.password && <p className="text-red-600 font-semibold">{errors.password?.message}</p>}
             </div>
-
-            {/* <div className="form-control w-full max-w-xs mt-3 bordered">
-            <select className="bordered" {...register("userType", { required: "Selected UserType" })}>
-                <option value="">Select User Type</option>
-                <option value="Buyer">Buyer</option>
-                <option value="Seller">Seller</option>
-            </select>
-            {errors.userType && <p className="text-red-600 font-semibold">{errors.userType?.message}</p>}
-            
-            </div> */}
           <input className="btn btn-primary w-full mt-5" value="Login" type="submit" />
           <div>
             {loginError && <p className="text-red-600">{loginError}</p>}
