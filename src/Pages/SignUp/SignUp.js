@@ -31,6 +31,7 @@ const SignUp = () => {
             console.log(error);
             setSignUpError(error.message);
         });
+        
         const name = data.name;
         const email = data.email;
         const role = data.userType;

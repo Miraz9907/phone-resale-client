@@ -3,6 +3,7 @@ import DashboardLayout from "../../Layout/DashboardLayout";
 import Main from "../../Layout/Main";
 import Category from "../../Pages/AllCategories/Category/Category";
 import Blog from "../../Pages/Blog/Blog";
+import BookedPhone from "../../Pages/DashBoard/BookedPhone/BookedPhone";
 import DashBoard from "../../Pages/DashBoard/DashBoard/DashBoard";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
@@ -44,7 +45,7 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: '/dashboard',
-                element: <DashBoard></DashBoard>
+                element: <BookedPhone></BookedPhone>
             }
         ]
     }
