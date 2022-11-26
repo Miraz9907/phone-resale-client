@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
+import { AuthContext } from '../../../contexts/AuthProvider';
 
 const BookingModal = ({phoneModel,setPhoneModel}) => {
+    const {user} = useContext(AuthContext);
+    console.log(user);
     const {name,resalePrice,} = phoneModel;
 
     const handleBooking = event =>{
@@ -23,6 +27,7 @@ const BookingModal = ({phoneModel,setPhoneModel}) => {
         }
         console.log(booking);
         setPhoneModel(null);
+        toast("successfully");
 
     }
     return (
@@ -33,8 +38,8 @@ const BookingModal = ({phoneModel,setPhoneModel}) => {
                     <label htmlFor="booking-phone" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <h3 className="text-lg font-bold">{name}</h3>
                     <form onSubmit={handleBooking} className='grid grid-cols-1 gap-3 mt-10'>
-                    <input name='name' type="text" placeholder="user name" className="input w-full input-bordered" />
-                    <input name='email' type="email" placeholder="user email" className="input w-full input-bordered" />
+                    <input name='name' type="text" value={user?.displayName} className="input w-full input-bordered" readOnly />
+                    <input name='email' type="email" value={user?.email} className="input w-full input-bordered" readOnly />
                     <input name='model' type="text" value={name} className="input w-full input-bordered" readOnly/>
                     <input name='price' type="text" value={resalePrice} className="input w-full input-bordered" readOnly />
                     <input name='phone' type="text" placeholder="Your Phone Number" className="input w-full input-bordered" />
