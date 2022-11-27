@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import Loading from "../../Shared/Loading/Loading";
 import BookingModal from "../BookingModal/BookingModal";

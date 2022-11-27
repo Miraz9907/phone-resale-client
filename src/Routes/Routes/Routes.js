@@ -3,8 +3,8 @@ import DashboardLayout from "../../Layout/DashboardLayout";
 import Main from "../../Layout/Main";
 import Category from "../../Pages/AllCategories/Category/Category";
 import Blog from "../../Pages/Blog/Blog";
+import AllUsers from "../../Pages/DashBoard/AllUsers/AllUsers";
 import BookedPhone from "../../Pages/DashBoard/BookedPhone/BookedPhone";
-import DashBoard from "../../Pages/DashBoard/DashBoard/DashBoard";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
 import SignUp from "../../Pages/SignUp/SignUp";
@@ -46,6 +46,10 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard',
                 element: <BookedPhone></BookedPhone>
+            },
+            {
+                path: '/dashboard/allusers',
+                element: <AllUsers></AllUsers>
             }
         ]
     }

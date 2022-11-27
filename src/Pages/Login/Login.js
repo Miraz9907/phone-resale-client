@@ -38,7 +38,7 @@ const Login = () => {
                 setLoginError(error.message);
             });
     }
-    const handleGoogle = () =>{
+    const handleGoogle = (data) =>{
       googleLogin(googleProvider)
       .then(result => {
         const user = result.user;
