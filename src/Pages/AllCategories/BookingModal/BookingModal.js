@@ -60,6 +60,7 @@ const BookingModal = ({phoneModel,setPhoneModel, refetch}) => {
                     <input name='phone' type="text" placeholder="Your Phone Number" className="input w-full input-bordered" required/>
                     <input name='location' type="text" placeholder="meeting location" className="input w-full input-bordered" required />
                     <br />
+                    
                     <input className='btn btn-primary w-full ' type="submit" value="Submit" />
                     </form>
                 </div>
