@@ -5,14 +5,15 @@ import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 import useToken from "../../hooks/useToken";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const Login = () => {
     const {register, formState: {errors}, handleSubmit} = useForm();
-    const {signIn, googleLogin} = useContext(AuthContext);
+    const {signIn} = useContext(AuthContext);
     const [loginError, setLoginError] = useState('');
     const [loginUserEmail,setloginUserEmail ] = useState('');
     const [token] = useToken(loginUserEmail);
-    const googleProvider = new GoogleAuthProvider();
+    // const googleProvider = new GoogleAuthProvider();
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -38,39 +39,39 @@ const Login = () => {
                 setLoginError(error.message);
             });
     }
-    const handleGoogle = (data) =>{
-      googleLogin(googleProvider)
-      .then(result => {
-        const user = result.user;
-        console.log(user);
-        navigate(from, {replace: true});
-        const name = user.displayName;
-                const email = user.email;
-                const role = 'Buyer';
+    // const handleGoogle = (data) =>{
+    //   googleLogin(googleProvider)
+    //   .then(result => {
+    //     const user = result.user;
+    //     console.log(user);
+    //     navigate(from, {replace: true});
+    //     const name = user.displayName;
+    //             const email = user.email;
+    //             const role = 'Buyer';
 
-                const loginUser ={
-                  name,
-                  email,
-                  role,
-                }
-                fetch('http://localhost:5000/login',{
-                  method: 'PUT',
-                  headers: {
-                    'content-type': 'application/json'
-                  },
-                  body: JSON.stringify(loginUser)
-                })
-                .then(res => res.json())
-                .then(data => {
-                  console.log(data);
-                  if(data.modifiedCount > 0){
-                    toast.success("Your are login login successfully");
-                  }
-                })
-      })
-      .catch(error => console.log(error));
+    //             const loginUser ={
+    //               name,
+    //               email,
+    //               role,
+    //             }
+    //             fetch('http://localhost:5000/login',{
+    //               method: 'PUT',
+    //               headers: {
+    //                 'content-type': 'application/json'
+    //               },
+    //               body: JSON.stringify(loginUser)
+    //             })
+    //             .then(res => res.json())
+    //             .then(data => {
+    //               console.log(data);
+    //               if(data.modifiedCount > 0){
+    //                 toast.success("Your are login login successfully");
+    //               }
+    //             })
+    //   })
+    //   .catch(error => console.log(error));
 
-    }
+    // }
   return (
     <div className="h-[500px] flex justify-center items-center">
       <div className="w-96 p-7">
@@ -99,9 +100,10 @@ const Login = () => {
             {loginError && <p className="text-red-600">{loginError}</p>}
           </div>
         </form>
-        <p>New to Phone Resale? <Link className="text-green-400" to='/signup'>Create an Account</Link></p>
+        <SocialLogin></SocialLogin>
+        {/* <p>New to Phone Resale? <Link className="text-green-400" to='/signup'>Create an Account</Link></p>
         <div className="divider">OR</div>
-        <button onClick={handleGoogle} className="btn btn-outline w-full">CONTINUE WITH GOOGLE</button>
+        <button onClick={handleGoogle} className="btn btn-outline w-full">CONTINUE WITH GOOGLE</button> */}
       </div>
     </div>
   );
