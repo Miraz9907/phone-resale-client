@@ -3,11 +3,15 @@ import DashboardLayout from "../../Layout/DashboardLayout";
 import Main from "../../Layout/Main";
 import Category from "../../Pages/AllCategories/Category/Category";
 import Blog from "../../Pages/Blog/Blog";
+import AddProduct from "../../Pages/DashBoard/AddProduct/AddProduct";
+import AllBuyer from "../../Pages/DashBoard/AllBuyer/AllBuyer";
+import AllSeller from "../../Pages/DashBoard/AllSeller/AllSeller";
 import AllUsers from "../../Pages/DashBoard/AllUsers/AllUsers";
 import BookedPhone from "../../Pages/DashBoard/BookedPhone/BookedPhone";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
 import SignUp from "../../Pages/SignUp/SignUp";
+import AdminRoute from "../AdminRoute/AdminRoute";
 import NotFound from "../NotFound/NotFound";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
@@ -49,8 +53,20 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/allusers',
-                element: <AllUsers></AllUsers>
-            }
+                element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+            },
+            {
+                path: '/dashboard/allseller',
+                element: <AllSeller></AllSeller>
+            },
+            {
+                path: '/dashboard/allbuyer',
+                element: <AllBuyer></AllBuyer>
+            },
+            {
+                path: '/dashboard/addproduct',
+                element: <AddProduct></AddProduct>
+            },
         ]
     }
 ])
