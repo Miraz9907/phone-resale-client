@@ -26,11 +26,11 @@ const BookedPhone = () => {
           <table className="table w-full">
             <thead>
               <tr>
-                <th></th>
+                <th>S.NO</th>
                 <th>Image</th>
                 <th>Brand</th>
                 <th>Model</th>
-                <th>UserType</th>
+                <th>Payment</th>
               </tr>
             </thead>
             <tbody>
@@ -47,7 +47,7 @@ const BookedPhone = () => {
                   </td>
                   <td>{phone.model}</td>
                   <td>{phone.model}</td>
-                  <td>Blue</td>
+                  <td>Paid</td>
                 </tr>
               ))}
             </tbody>
