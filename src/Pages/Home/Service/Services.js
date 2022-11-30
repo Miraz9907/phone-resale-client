@@ -3,7 +3,7 @@ import React from 'react';
 const Services = ({shop}) => {
     
     const {name,description,bgClass} = shop;
-    console.log(name, description)
+    // console.log(name, description)
     return (
         <div className={`card text-white p-6 md:card-side shadow-xl ${bgClass}`}>
     {/* <figure>

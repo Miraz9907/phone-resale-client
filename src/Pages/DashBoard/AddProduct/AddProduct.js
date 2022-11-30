@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
 
 const AddProduct = () => {
     const {register, formState: {errors}, handleSubmit} = useForm();
-    
+    const navigate = useNavigate;
     const { user } = useContext(AuthContext);
    
 
@@ -23,10 +24,10 @@ const AddProduct = () => {
         const picture = data.image;
         const condition = data.condition;
         const description = data.description;
-        const verified = false;
-        const report = false;
-        const advertise = false;
-        const isSoled = false;
+        const verified = "false";
+        const report = "false";
+        const advertise = "false";
+        const isSoled = "false";
         const dateobj = new Date();
         const postedTime = dateobj.toISOString();
 
@@ -63,9 +64,8 @@ const AddProduct = () => {
             console.log(data);
             if(data.acknowledged){
 
-                
-                
                 toast.success("Added successfuly");
+                navigate('/dashboard/myproduct')
             }
         })
 
@@ -82,13 +82,13 @@ const AddProduct = () => {
         <div className="form-control w-full max-w-xs mt-3 bordered">
         <div className="form-control w-full max-w-xs">
                 <label className="label"><span className="label-text">Email</span></label>
-                <input defaultValue={user.email} type="email" {...register("email",{
+                <input defaultValue={user.email} readOnly type="email" {...register("email",{
                     required: true
                 })} className="input input-bordered w-full max-w-xs"/>
             </div>
             <div className="form-control w-full max-w-xs">
                 <label className="label"><span className="label-text">User Name</span></label>
-                <input defaultValue={user.displayName}  type="text" {...register("name",{
+                <input defaultValue={user.displayName} readOnly type="text" {...register("name",{
                     required: true
                 })} className="input input-bordered w-full max-w-xs"/>
             </div>
