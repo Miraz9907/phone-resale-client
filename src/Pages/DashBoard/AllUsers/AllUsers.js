@@ -10,9 +10,7 @@ const AllUsers = () => {
     setDeleteUser(null);
   }
 
-  const handleDeleteUser = user =>{
-    console.log(user);
-  }
+  
   const { data: allusers = [], refetch } = useQuery({
     queryKey: ["allusers"],
     queryFn: async () => {
@@ -21,6 +19,23 @@ const AllUsers = () => {
       return data;
     },
   });
+
+  const handleDeleteUser = user =>{
+    fetch(`http://localhost:5000/allusers/${user._id}`,{
+      method: 'DELETE',
+      headers: {
+        authorization: `bearer ${localStorage.getItem('accessToken')}`
+      }
+    })
+    .then(res => res.json())
+    .then(data => {
+      if(data.deletedCount){
+        refetch();
+        toast.success(`deleted successfully`)
+      }
+      
+    })
+  }
 
   // const handleMakeAdmin = id =>{
   //     fetch (`http://localhost:5000/allusers/admin/${id}`,{

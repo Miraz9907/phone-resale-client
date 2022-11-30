@@ -10,6 +10,7 @@ import AllUsers from "../../Pages/DashBoard/AllUsers/AllUsers";
 import BookedPhone from "../../Pages/DashBoard/BookedPhone/BookedPhone";
 import MyOrder from "../../Pages/DashBoard/MyOrder/MyOrder";
 import MyProducts from "../../Pages/DashBoard/MyProducts/MyProducts";
+import Payment from "../../Pages/DashBoard/Payment/Payment";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
 import SignUp from "../../Pages/SignUp/SignUp";
@@ -59,6 +60,13 @@ export const router = createBrowserRouter([
                 // element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
                 element: <AllUsers></AllUsers>
             },
+            // {
+            //     path: '/dashboard/payment/:id',
+            //     element: <Payment></Payment>,
+            //     loader: ({params}) =>{
+            //         return fetch(`http://localhost:5000/bookings/${params.id}`)
+            //     }
+            // },
             {
                 path: '/dashboard/allseller',
                 element: <AllSeller></AllSeller>

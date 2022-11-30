@@ -19,8 +19,8 @@ const ConfirmationModal = ({title, message,successAction, closeModal, modalData}
               {message}
             </p>
             <div className="modal-action">
-              <label onClick={ () => successAction(modalData)} htmlFor="confirmation-modal" className="btn">
-                Yay!
+              <label onClick={ () => successAction(modalData)} htmlFor="confirmation-modal" className="btn btn-primary">
+                Delete!
               </label>
               <button onClick={closeModal} className="btn bg-red-400 text-white">Cancel</button>
             </div>

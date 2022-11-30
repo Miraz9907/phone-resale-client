@@ -1,5 +1,5 @@
 import { GoogleAuthProvider } from "firebase/auth";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -11,26 +11,44 @@ const Login = () => {
     const {register, formState: {errors}, handleSubmit} = useForm();
     const {signIn, googleLogin} = useContext(AuthContext);
     const [loginError, setLoginError] = useState('');
-    const [loginUserEmail,setloginUserEmail ] = useState('');
-    const [token] = useToken(loginUserEmail);
+  const [token, setToken] = useState("");
+    // const [userLogin,setUserLogin ] = useState('');
+    const [userLogin, setUserLogin] = useState('');
+    // const [token] = useToken(userLogin);
     const googleProvider = new GoogleAuthProvider();
     const location = useLocation();
     const navigate = useNavigate();
 
     const from = location.state?.from?.pathname || '/';
+    console.log(userLogin);
 
     if(token){
       navigate(from, {replace: true});
     }
+    useEffect(()=>{
+      if(userLogin){
+        fetch(`http://localhost:5000/jwt?email=${userLogin}`)
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.accessToken) {
+            localStorage.setItem("accessToken", data.accessToken);
+            setToken(data.accessToken);
+          }
+        });
+      }
+
+    },[userLogin])
     const handleLogin = data =>{
         console.log(data);
+        setUserLogin(data.email)
         setLoginError('');
         signIn(data.email, data.password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                setloginUserEmail(data.email)
-                // navigate(from, {replace: true});
+                // setUserLogin("miraz")
+                navigate(from, {replace: true});
 
                 
             })

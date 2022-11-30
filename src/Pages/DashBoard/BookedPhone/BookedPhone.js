@@ -21,7 +21,9 @@ const BookedPhone = () => {
     })
     return (
       <div>
-        <h3 className="text-3xl mb-5">Booked Phone</h3>
+        <h3 className="text-3xl mb-5">Booked Phone {
+              bookingsphone.length
+            }</h3>
         <div className="overflow-x-auto">
           <table className="table w-full">
             <thead>
@@ -33,6 +35,7 @@ const BookedPhone = () => {
                 <th>Payment</th>
               </tr>
             </thead>
+            
             <tbody>
               {bookingsphone?.length &&
               bookingsphone?.map((phone, index) => (
@@ -47,7 +50,7 @@ const BookedPhone = () => {
                   </td>
                   <td>{phone.model}</td>
                   <td>{phone.model}</td>
-                  <td>Paid</td>
+                  <td>Pay</td>
                 </tr>
               ))}
             </tbody>
