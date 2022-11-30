@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
 
 const BookedPhone = () => {
@@ -21,9 +22,7 @@ const BookedPhone = () => {
     })
     return (
       <div>
-        <h3 className="text-3xl mb-5">Booked Phone {
-              bookingsphone.length
-            }</h3>
+        <h3 className="text-3xl mb-5">Booked Phone {bookingsphone.length}</h3>
         <div className="overflow-x-auto">
           <table className="table w-full">
             <thead>
@@ -35,24 +34,35 @@ const BookedPhone = () => {
                 <th>Payment</th>
               </tr>
             </thead>
-            
+
             <tbody>
               {bookingsphone?.length &&
-              bookingsphone?.map((phone, index) => (
-                <tr key={phone._id}>
-                  <td>{index + 1}</td>
-                  <td>
-                    <div className="avatar">
-                      <div className="w-24 rounded-full">
-                        <img src={phone.picture} alt="phone" />
+                bookingsphone?.map((phone, index) => (
+                  <tr key={phone._id}>
+                    <td>{index + 1}</td>
+                    <td>
+                      <div className="avatar">
+                        <div className="w-24 rounded-full">
+                          <img src={phone.picture} alt="phone" />
+                        </div>
                       </div>
-                    </div>
-                  </td>
-                  <td>{phone.model}</td>
-                  <td>{phone.model}</td>
-                  <td>Pay</td>
-                </tr>
-              ))}
+                    </td>
+                    <td>{phone.model}</td>
+                    <td>{phone.model}</td>
+                    <td>
+                      {phone.price && !phone.paid && (
+                        <Link to={`/dashboard/payment/${phone._id}`}>
+                          <button className="btn btn-primary btn-sm">
+                            Pay
+                          </button>
+                        </Link>
+                      )}
+                      {phone.price && phone.paid && (
+                        <span className="text-green-500">Paid</span>
+                      )}
+                    </td>
+                  </tr>
+                ))}
             </tbody>
           </table>
         </div>

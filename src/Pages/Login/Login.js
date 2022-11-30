@@ -4,8 +4,7 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
-import useToken from "../../hooks/useToken";
-// import SocialLogin from "../Shared/SocialLogin/SocialLogin";
+
 
 const Login = () => {
     const {register, formState: {errors}, handleSubmit} = useForm();

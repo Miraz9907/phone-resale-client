@@ -15,7 +15,7 @@ const Category = () => {
   const {data: category = [], refetch, isLoading} = useQuery({
     queryKey: ['categories'],
     queryFn: async() =>{
-      const res = await fetch(`http://localhost:5000/categories?category_id=${id}`);
+      const res = await fetch(`http://localhost:5000/categories?category=${id}`);
       const data = await res.json();
       return data
     }
