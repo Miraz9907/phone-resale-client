@@ -11,25 +11,24 @@ const Category = () => {
   // const [category, setCategory] = useState([]);
   const [phoneModel, setPhoneModel] = useState(null);
 
-
-  const {data: category = [], refetch, isLoading} = useQuery({
-    queryKey: ['categories'],
-    queryFn: async() =>{
-      const res = await fetch(`http://localhost:5000/categories?category=${id}`);
+  const {
+    data: category = [],
+    refetch,
+    isLoading,
+  } = useQuery({
+    queryKey: ["categories"],
+    queryFn: async () => {
+      const res = await fetch(
+        `http://localhost:5000/categories?category=${id}`
+      );
       const data = await res.json();
-      return data
-    }
+      return data;
+    },
   });
 
-  if(isLoading){
-    return <Loading></Loading>
+  if (isLoading) {
+    return <Loading></Loading>;
   }
-
-  // useEffect(() => {
-  //   fetch(`http://localhost:5000/categories?category_id=${id}`)
-  //     .then((res) => res.json())
-  //     .then((data) => setCategory(data));
-  // }, [id]);
 
   return (
     <section>
@@ -51,7 +50,7 @@ const Category = () => {
         <BookingModal
           phoneModel={phoneModel}
           setPhoneModel={setPhoneModel}
-          refetch = {refetch}
+          refetch={refetch}
         ></BookingModal>
       )}
     </section>

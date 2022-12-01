@@ -4,7 +4,6 @@ import toast from "react-hot-toast";
 import { AuthContext } from "../../../contexts/AuthProvider";
 
 const MyProducts = () => {
-  
   const { user } = useContext(AuthContext);
   const { data: mydata = [], refetch } = useQuery({
     queryKey: ["allrole"],
@@ -36,23 +35,22 @@ const MyProducts = () => {
       });
   };
 
-  const handleDelete = id =>{
-    const proceed = window.confirm('Are you sure? you want to delete ?');
-    if(proceed){
-        fetch(`http://localhost:5000/deleteproduct/${id}`, {
-            method: 'DELETE'
-        })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            if (data.deletedCount > 0){
-               
-                toast.success("Successfully Adertise");
-                refetch();
-            }
-        })
+  const handleDelete = (id) => {
+    const proceed = window.confirm("Are you sure? you want to delete ?");
+    if (proceed) {
+      fetch(`http://localhost:5000/deleteproduct/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.deletedCount > 0) {
+            toast.success("Successfully Adertise");
+            refetch();
+          }
+        });
     }
-}
+  };
   return (
     <div>
       <h2 className="text-3xl">My Products</h2>
@@ -76,11 +74,11 @@ const MyProducts = () => {
                 <td>{users.sellerName}</td>
                 <td>{users.email}</td>
                 <td>
-                <div className="avatar">
-                        <div className="w-24 rounded-full">
-                          <img src={users.picture} alt="phone" />
-                        </div>
-                      </div>
+                  <div className="avatar">
+                    <div className="w-24 rounded-full">
+                      <img src={users.picture} alt="phone" />
+                    </div>
+                  </div>
                 </td>
                 <td>{users?.isSoled !== "false" ? <>Sold</> : <>Unsold</>}</td>
 
@@ -100,15 +98,16 @@ const MyProducts = () => {
                 </td>
                 <td>
                   <button
-                   className="btn btn-xs text-red-400"
-                   onClick={()=> handleDelete(users._id)}
-                  >Delete</button>
+                    className="btn btn-xs text-red-400"
+                    onClick={() => handleDelete(users._id)}
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
-
       </div>
     </div>
   );

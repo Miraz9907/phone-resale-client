@@ -20,72 +20,93 @@ import NotFound from "../NotFound/NotFound";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 export const router = createBrowserRouter([
-    {
-        path: '/',
-        element: <Main></Main>,
-        errorElement: <NotFound></NotFound>,
-        children: [
-            {
-                path: '/',
-                element: <Home></Home>
-            },
-            {
-                path: '/blog',
-                element: <Blog></Blog>
-            },
-            {
-                path: '/category/:id',
-                element: <PrivateRoute><Category></Category></PrivateRoute>
-            },
-            {
-                path: '/login',
-                element: <Login></Login>
-            },
-            {
-                path: '/signup',
-                element: <SignUp></SignUp>
-            }
-        ]
-    },
-    {
-        path:'/dashboard',
-        element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
-        children: [
-            {
-                path: '/dashboard',
-                element: <BookedPhone></BookedPhone>
-            },
-            {
-                path: '/dashboard/payment/:id',
-                element: <Payment></Payment>,
-                loader: ({params}) =>{
-                    return fetch(`http://localhost:5000/bookings/${params.id}`)
-                }
-            },
-            {
-                path: '/dashboard/allseller',
-                element: <AdminRoute> <AllSeller></AllSeller></AdminRoute>
-            },
-            {
-                path: '/dashboard/reporteitem',
-                element:<ReportedItem></ReportedItem>
-            },
-            {
-                path: '/dashboard/allbuyer',
-                element: <AllBuyer></AllBuyer>
-            },
-            {
-                path: '/dashboard/addproduct',
-                element: <SellerRoute><AddProduct></AddProduct></SellerRoute>
-            },
-            {
-                path: '/dashboard/myproduct',
-                element: <SellerRoute><MyProducts></MyProducts></SellerRoute>
-            },
-            {
-                path: '/dashboard/myorder',
-                element: <MyOrder></MyOrder>
-            },
-        ]
-    }
-])
+  {
+    path: "/",
+    element: <Main></Main>,
+    errorElement: <NotFound></NotFound>,
+    children: [
+      {
+        path: "/",
+        element: <Home></Home>,
+      },
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
+      },
+      {
+        path: "/category/:id",
+        element: (
+          <PrivateRoute>
+            <Category></Category>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/signup",
+        element: <SignUp></SignUp>,
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <DashboardLayout></DashboardLayout>
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        path: "/dashboard",
+        element: <BookedPhone></BookedPhone>,
+      },
+      {
+        path: "/dashboard/payment/:id",
+        element: <Payment></Payment>,
+        loader: ({ params }) => {
+          return fetch(`http://localhost:5000/bookings/${params.id}`);
+        },
+      },
+      {
+        path: "/dashboard/allseller",
+        element: (
+          <AdminRoute>
+            {" "}
+            <AllSeller></AllSeller>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/dashboard/reporteitem",
+        element: <ReportedItem></ReportedItem>,
+      },
+      {
+        path: "/dashboard/allbuyer",
+        element: <AllBuyer></AllBuyer>,
+      },
+      {
+        path: "/dashboard/addproduct",
+        element: (
+          <SellerRoute>
+            <AddProduct></AddProduct>
+          </SellerRoute>
+        ),
+      },
+      {
+        path: "/dashboard/myproduct",
+        element: (
+          <SellerRoute>
+            <MyProducts></MyProducts>
+          </SellerRoute>
+        ),
+      },
+      {
+        path: "/dashboard/myorder",
+        element: <MyOrder></MyOrder>,
+      },
+    ],
+  },
+]);

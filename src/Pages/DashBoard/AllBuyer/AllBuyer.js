@@ -4,31 +4,31 @@ import toast from "react-hot-toast";
 
 const AllBuyer = () => {
   const role = "Buyer";
-  const {data: allBuyer = [], refetch} = useQuery({
-    queryKey: ['allusers'],
-    queryFn: async() =>{
-        const res = await fetch(`http://localhost:5000/allusers?role=${role}`);
-        const data = await res.json();
-        return data;
-    }
-});
+  const { data: allBuyer = [], refetch } = useQuery({
+    queryKey: ["allusers"],
+    queryFn: async () => {
+      const res = await fetch(`http://localhost:5000/allusers?role=${role}`);
+      const data = await res.json();
+      return data;
+    },
+  });
 
-  const handleBuyerDelete = (id) =>{
-    const proceed = window.confirm('Are you sure? you want to delete ?');
-  if(proceed){
+  const handleBuyerDelete = (id) => {
+    const proceed = window.confirm("Are you sure? you want to delete ?");
+    if (proceed) {
       fetch(`http://localhost:5000/deleteuser/${id}`, {
-          method: 'DELETE'
+        method: "DELETE",
       })
-      .then(res => res.json())
-      .then(data => {
+        .then((res) => res.json())
+        .then((data) => {
           console.log(data);
-          if (data.deletedCount > 0){
-              toast.success("Successfully Adertise");
-              refetch();
+          if (data.deletedCount > 0) {
+            toast.success("Successfully Adertise");
+            refetch();
           }
-      })
-  }
-  }
+        });
+    }
+  };
   return (
     <div>
       <div>
@@ -50,9 +50,11 @@ const AllBuyer = () => {
                   <td>{buyer.email}</td>
                   <td>
                     <button
-                     className="btn btn-xs text-red-400"
-                     onClick={() => handleBuyerDelete(buyer._id)}
-                     >Delete</button>
+                      className="btn btn-xs text-red-400"
+                      onClick={() => handleBuyerDelete(buyer._id)}
+                    >
+                      Delete
+                    </button>
                   </td>
                 </tr>
               ))}
