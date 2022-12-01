@@ -1,19 +1,36 @@
-import React, { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import React from "react";
+import toast from "react-hot-toast";
 
 const AllBuyer = () => {
-  const [allBuyer, setAllBuyer] = useState([]);
   const role = "Buyer";
-  useEffect(() => {
-    fetch(`http://localhost:5000/allusers?role=${role}`)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setAllBuyer(data);
-      });
-  }, []);
+  const {data: allBuyer = [], refetch} = useQuery({
+    queryKey: ['allusers'],
+    queryFn: async() =>{
+        const res = await fetch(`http://localhost:5000/allusers?role=${role}`);
+        const data = await res.json();
+        return data;
+    }
+});
+
+  const handleBuyerDelete = (id) =>{
+    const proceed = window.confirm('Are you sure? you want to delete ?');
+  if(proceed){
+      fetch(`http://localhost:5000/deleteuser/${id}`, {
+          method: 'DELETE'
+      })
+      .then(res => res.json())
+      .then(data => {
+          console.log(data);
+          if (data.deletedCount > 0){
+              toast.success("Successfully Adertise");
+              refetch();
+          }
+      })
+  }
+  }
   return (
     <div>
-      <h3 className="text-3xl">All Buyers {allBuyer.length}</h3>
       <div>
         <div className="overflow-x-auto">
           <table className="table w-full">
@@ -26,13 +43,16 @@ const AllBuyer = () => {
               </tr>
             </thead>
             <tbody>
-              {allBuyer.map((Seller, index) => (
-                <tr key={Seller._id}>
+              {allBuyer.map((buyer, index) => (
+                <tr key={buyer._id}>
                   <th>{index + 1}</th>
-                  <td>{Seller.name}</td>
-                  <td>{Seller.email}</td>
+                  <td>{buyer.name}</td>
+                  <td>{buyer.email}</td>
                   <td>
-                    <button className="btn btn-xs text-red-400">Delete</button>
+                    <button
+                     className="btn btn-xs text-red-400"
+                     onClick={() => handleBuyerDelete(buyer._id)}
+                     >Delete</button>
                   </td>
                 </tr>
               ))}

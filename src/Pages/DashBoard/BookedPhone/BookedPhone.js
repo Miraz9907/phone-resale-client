@@ -19,7 +19,7 @@ const BookedPhone = () => {
             const data = await res.json();
             return data;
         }
-    })
+    });
     return (
       <div>
         <h3 className="text-3xl mb-5">Booked Phone {bookingsphone.length}</h3>

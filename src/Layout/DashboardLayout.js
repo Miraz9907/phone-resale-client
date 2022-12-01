@@ -9,6 +9,7 @@ const DashboardLayout = () => {
   const { user } = useContext(AuthContext);
   const [isAdmin] = useAdmin(user?.email);
   const [isSeller] = useSeller(user?.email);
+  // const [isBuyer] = useBuyer(user?.email);
   return (
     <div>
       <Navbar></Navbar>
@@ -24,9 +25,10 @@ const DashboardLayout = () => {
         <div className="drawer-side">
           <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
           <ul className="menu p-4 w-80 text-base-content">
-            <li>
-              <Link to="/dashboard">Booked Phone</Link>
-            </li>
+           
+                    <li>
+                    <Link to="/dashboard">Booked Phone</Link>
+                  </li>
 
             {isSeller && (
               <>
@@ -42,17 +44,12 @@ const DashboardLayout = () => {
             {isAdmin && (
               <>
                 <li>
-                  <Link to="/dashboard">Booked Phone</Link>
+                  <Link to="/dashboard">My Order</Link>
                 </li>
                 <li>
-                  <Link to="/dashboard/allusers">All User</Link>
+                  <Link to="/dashboard/reporteitem">Reported Item</Link>
                 </li>
-                <li>
-                  <Link to="/dashboard/addproduct">Add A Product</Link>
-                </li>
-                <li>
-                  <Link to="/dashboard/myproduct">My Products</Link>
-                </li>
+
                 <li>
                   <Link to="/dashboard/allseller">All Seller</Link>
                 </li>

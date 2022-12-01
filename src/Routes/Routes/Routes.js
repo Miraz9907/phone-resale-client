@@ -6,11 +6,11 @@ import Blog from "../../Pages/Blog/Blog";
 import AddProduct from "../../Pages/DashBoard/AddProduct/AddProduct";
 import AllBuyer from "../../Pages/DashBoard/AllBuyer/AllBuyer";
 import AllSeller from "../../Pages/DashBoard/AllSeller/AllSeller";
-import AllUsers from "../../Pages/DashBoard/AllUsers/AllUsers";
 import BookedPhone from "../../Pages/DashBoard/BookedPhone/BookedPhone";
 import MyOrder from "../../Pages/DashBoard/MyOrder/MyOrder";
 import MyProducts from "../../Pages/DashBoard/MyProducts/MyProducts";
 import Payment from "../../Pages/DashBoard/Payment/Payment";
+import ReportedItem from "../../Pages/DashBoard/ReportedItem/ReportedItem";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
 import SignUp from "../../Pages/SignUp/SignUp";
@@ -56,11 +56,6 @@ export const router = createBrowserRouter([
                 element: <BookedPhone></BookedPhone>
             },
             {
-                path: '/dashboard/allusers',
-                // element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
-                element: <AllUsers></AllUsers>
-            },
-            {
                 path: '/dashboard/payment/:id',
                 element: <Payment></Payment>,
                 loader: ({params}) =>{
@@ -70,6 +65,10 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/allseller',
                 element: <AdminRoute> <AllSeller></AllSeller></AdminRoute>
+            },
+            {
+                path: '/dashboard/reporteitem',
+                element:<ReportedItem></ReportedItem>
             },
             {
                 path: '/dashboard/allbuyer',
@@ -82,7 +81,8 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/myproduct',
                 element: <SellerRoute><MyProducts></MyProducts></SellerRoute>
-            },{
+            },
+            {
                 path: '/dashboard/myorder',
                 element: <MyOrder></MyOrder>
             },

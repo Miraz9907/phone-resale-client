@@ -86,7 +86,7 @@ const MyProducts = () => {
 
                 <td>
                   {users?.advertise !== "false" ? (
-                    <>Already advertise</>
+                    <p className="bg-sky-400 ">Already advertise</p>
                   ) : (
                     <>
                       <button

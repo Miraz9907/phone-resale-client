@@ -1,11 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useContext } from 'react';
-import { AuthContext } from '../../../contexts/AuthProvider';
+import React from 'react';
 import AdvertiseCart from './AdvertiseCart';
 
 const Advertisement = () => {
-    const {user} = useContext(AuthContext);
-    const {data: mydata = [], refetch} = useQuery({
+    const {data: mydata = []} = useQuery({
         queryKey: ['allrole'],
         queryFn: async() =>{
             const res = await fetch("http://localhost:5000/mydata?advertise=true");

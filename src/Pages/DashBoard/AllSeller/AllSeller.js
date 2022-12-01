@@ -14,21 +14,66 @@ const AllSeller = () => {
         }
     });
 
-  const handleverifySeller = id =>{
-    fetch (`http://localhost:5000/allusers/admin/${id}`,{
-        method: 'PUT',
-        headers: {
-            authorization: `bearer ${localStorage.getItem('accessToken')}`
-        }
-    })
-    .then(res => res.json())
-    .then(data =>{
-        console.log(data)
-        if(data.modifiedCount> 0) {
-            toast.success('verified successfully')
-            refetch();
-        }
-    })
+
+const handleStatusUpdate = (id, email) => {
+
+  console.log(id,email);
+  fetch(`http://localhost:5000/verifiedcataupdate/${email}`, {
+    
+      method: 'PATCH', 
+      headers: {
+          'content-type': 'application/json'
+      },
+      body: JSON.stringify({verified: 'true'})
+  })
+  .then(res => res.json())
+  .then(data => {
+      console.log(data);
+      if(data.modifiedCount > 0) {
+          toast.success("Successfully Veryfied!");
+          refetch();
+          
+          
+      }
+  })
+  fetch(`http://localhost:5000/verifiedupdate/${id}`, {
+    
+      method: 'PATCH', 
+      headers: {
+          'content-type': 'application/json'
+      },
+      body: JSON.stringify({verified: 'true'})
+  })
+  .then(res => res.json())
+  .then(data => {
+      console.log(data);
+      if(data.modifiedCount > 0) {
+          toast.success("Successfully Veryfied!");
+          refetch();
+          
+          
+      }
+  })
+  
+}
+
+
+const handleSellerDelete = (id) =>{
+  const proceed = window.confirm('Are you sure? you want to delete ?');
+  if(proceed){
+      fetch(`http://localhost:5000/deleteuser/${id}`, {
+          method: 'DELETE'
+      })
+      .then(res => res.json())
+      .then(data => {
+          console.log(data);
+          if (data.deletedCount > 0){
+             
+              toast.success("Successfully Adertise");
+              refetch();
+          }
+      })
+  }
 }
   return (
     <div>
@@ -52,10 +97,28 @@ const AllSeller = () => {
                 <td>{Seller.name}</td>
                 <td>{Seller.email}</td>
                 <td>
-                  {Seller?.sellerType!== 'verified'  && <button onClick={() => handleverifySeller(Seller._id)} className="btn btn-xs btn-primary">Verify</button>}
+                  {
+           
+           Seller.verified !=='true'?
+           <>
+           <label className="btn btn-xs btn-primary" htmlFor="booking-phone" onClick={() => handleStatusUpdate(Seller._id, Seller.email)} >
+           Verify
+          </label>
+           
+           </>:<>
+           <label className="btn btn-disabled" htmlFor="booking-phone" >
+           verified
+          </label>
+           </>
+
+         
+       }
                 </td>
                 <td>
-                  <button className="btn btn-xs text-red-400">Delete</button>
+                  <button
+                   className="btn btn-xs text-red-400 bg-sky-400"
+                   onClick={() => handleSellerDelete(Seller._id)}
+                   >Delete</button>
                 </td>
               </tr>
             ))}

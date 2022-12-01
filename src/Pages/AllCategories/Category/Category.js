@@ -42,6 +42,7 @@ const Category = () => {
             key={singleCategory._id}
             singleCategory={singleCategory}
             setPhoneModel={setPhoneModel}
+            refetch={refetch}
           ></SingleCategory>
         ))}
       </div>

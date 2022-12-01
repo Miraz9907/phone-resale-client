@@ -1,8 +1,10 @@
 import React from "react";
+import toast from "react-hot-toast";
 
-const SingleCategory = ({ singleCategory, setPhoneModel }) => {
+const SingleCategory = ({ singleCategory, setPhoneModel,refetch }) => {
 //   console.log(singleCategory);
   const {
+    _id,
     location,
     name,
     originalPrice,
@@ -12,6 +14,28 @@ const SingleCategory = ({ singleCategory, setPhoneModel }) => {
     usedYear,
     postedTime,
   } = singleCategory;
+
+
+  const handleStatusUpdate = id => {
+    toast.success("Successfully Reported!");
+  
+    console.log(id);
+    fetch(`http://localhost:5000/reportupdate/${id}`, {
+        method: 'PATCH', 
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify({report: 'true'})
+    })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+        if(data.modifiedCount > 0) {
+            
+            refetch();
+        }
+    })
+  }
   return (
     <div className="card w-96 bg-base-100 shadow-xl">
       <figure>
@@ -31,13 +55,17 @@ const SingleCategory = ({ singleCategory, setPhoneModel }) => {
         </div>
         <p> Posted Time: {postedTime}</p>
       </div>
-      <div className="text-center my-5">
+      <div className=" flex justify-center items-center text-center my-5">
         <label 
             htmlFor="booking-phone" 
-            className="btn text-center btn-primary "
+            className="btn text-center btn-primary mr-2 "
             onClick={() => setPhoneModel(singleCategory)}
             >Book Now</label>
+            <button onClick={() => handleStatusUpdate(_id)}
+            className="btn text-center btn-primary "
+            > Report Item</button>
       </div>
+
     </div>
   );
 };
