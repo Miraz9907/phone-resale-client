@@ -14,17 +14,6 @@ const AllSeller = () => {
         }
     });
 
-//   const [allSeller, setAllSeller] = useState([]);
-//   const role = "Seller";
-//   useEffect(() => {
-//     fetch(`http://localhost:5000/allusers?role=${role}`)
-//       .then((res) => res.json())
-//       .then((data) => {
-//         console.log(data);
-//         setAllSeller(data);
-//       });
-//   }, []);
-
   const handleverifySeller = id =>{
     fetch (`http://localhost:5000/allusers/admin/${id}`,{
         method: 'PUT',

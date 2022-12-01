@@ -37,21 +37,6 @@ const AllUsers = () => {
     })
   }
 
-  // const handleMakeAdmin = id =>{
-  //     fetch (`http://localhost:5000/allusers/admin/${id}`,{
-  //         method: 'PUT',
-  //         headers: {
-  //             authorization: `bearer ${localStorage.getItem('accessToken')}`
-  //         }
-  //     })
-  //     .then(res => res.json())
-  //     .then(data =>{
-  //         if(data.modifiedCount> 0) {
-  //             toast.success('make admin successfully')
-  //             refetch();
-  //         }
-  //     })
-  // }
 
   return (
     <div>
