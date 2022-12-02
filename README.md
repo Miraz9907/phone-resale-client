@@ -1,4 +1,4 @@
-Email: miraz07@gmail.com
+Email: miraz07@gmail.com <br/>
 pass: Miraz7$
 
 # Phone Resale
@@ -30,6 +30,8 @@ Phone Resale
 - daisy ui
 - react hot toast
 - react
+- react query
+- axios
 - react icons font awesome
 - react router dom
 - firebase authentication
