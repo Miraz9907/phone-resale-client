@@ -9,6 +9,9 @@ pass: Miraz7$
 
 - Website live link: [Phone Resale](https://phone-resale-4aa80.web.app/)
 
+### Admin login
+Email: miraz07@gmail.com <br/>
+pass: Miraz7$
 ## Website Name:
 
 Phone Resale
