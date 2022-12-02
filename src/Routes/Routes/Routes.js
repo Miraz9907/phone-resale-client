@@ -67,7 +67,9 @@ export const router = createBrowserRouter([
         path: "/dashboard/payment/:id",
         element: <Payment></Payment>,
         loader: ({ params }) => {
-          return fetch(`http://localhost:5000/bookings/${params.id}`);
+          return fetch(
+            `https://used-phone-resale-server.vercel.app/bookings/${params.id}`
+          );
         },
       },
       {

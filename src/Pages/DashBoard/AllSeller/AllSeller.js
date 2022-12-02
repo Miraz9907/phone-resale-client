@@ -7,7 +7,9 @@ const AllSeller = () => {
   const { data: allSeller = [], refetch } = useQuery({
     queryKey: ["allusers"],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/allusers?role=${role}`);
+      const res = await fetch(
+        `https://used-phone-resale-server.vercel.app/allusers?role=${role}`
+      );
       const data = await res.json();
       return data;
     },
@@ -15,13 +17,16 @@ const AllSeller = () => {
 
   const handleStatusUpdate = (id, email) => {
     console.log(id, email);
-    fetch(`http://localhost:5000/verifiedcataupdate/${email}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({ verified: "true" }),
-    })
+    fetch(
+      `https://used-phone-resale-server.vercel.app/verifiedcataupdate/${email}`,
+      {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({ verified: "true" }),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -30,7 +35,7 @@ const AllSeller = () => {
           refetch();
         }
       });
-    fetch(`http://localhost:5000/verifiedupdate/${id}`, {
+    fetch(`https://used-phone-resale-server.vercel.app/verifiedupdate/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -50,7 +55,7 @@ const AllSeller = () => {
   const handleSellerDelete = (id) => {
     const proceed = window.confirm("Are you sure? you want to delete ?");
     if (proceed) {
-      fetch(`http://localhost:5000/deleteuser/${id}`, {
+      fetch(`https://used-phone-resale-server.vercel.app/deleteuser/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -110,7 +115,7 @@ const AllSeller = () => {
                 </td>
                 <td>
                   <button
-                    className="btn btn-xs text-red-400 bg-sky-400"
+                    className="btn btn-xs bg-red-400 text-black"
                     onClick={() => handleSellerDelete(Seller._id)}
                   >
                     Delete

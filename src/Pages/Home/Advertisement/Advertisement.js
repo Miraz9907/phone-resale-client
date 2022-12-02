@@ -6,7 +6,9 @@ const Advertisement = () => {
   const { data: mydata = [] } = useQuery({
     queryKey: ["allrole"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/mydata?advertise=true");
+      const res = await fetch(
+        "https://used-phone-resale-server.vercel.app/mydata?advertise=true"
+      );
       const data = await res.json();
       return data;
     },

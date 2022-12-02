@@ -27,7 +27,7 @@ const BookingModal = ({ phoneModel, setPhoneModel, refetch }) => {
       phone,
       location,
     };
-    fetch("http://localhost:5000/bookingsphone", {
+    fetch("https://used-phone-resale-server.vercel.app/bookingsphone", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -6,7 +6,9 @@ const ReportedItem = () => {
   const { data: reportedItem = [], refetch } = useQuery({
     queryKey: ["allrole"],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/allproduct?report=true`);
+      const res = await fetch(
+        `https://used-phone-resale-server.vercel.app/allproduct?report=true`
+      );
       const data = await res.json();
       return data;
     },
@@ -15,7 +17,7 @@ const ReportedItem = () => {
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure? you want to delete ?");
     if (proceed) {
-      fetch(`http://localhost:5000/deleteproduct/${id}`, {
+      fetch(`https://used-phone-resale-server.vercel.app/deleteproduct/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

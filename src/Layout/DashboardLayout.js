@@ -27,7 +27,7 @@ const DashboardLayout = () => {
           <ul className="menu p-4 w-80 text-base-content">
            
                     <li>
-                    <Link to="/dashboard">Booked Phone</Link>
+                    <Link to="/dashboard">My Order</Link>
                   </li>
 
             {isSeller && (

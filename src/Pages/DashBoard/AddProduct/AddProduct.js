@@ -53,7 +53,7 @@ const AddProduct = () => {
       isSoled,
       postedTime,
     };
-    fetch("http://localhost:5000/addproduct", {
+    fetch("https://used-phone-resale-server.vercel.app/addproduct", {
       method: "POST",
       headers: {
         "content-type": "application/json",

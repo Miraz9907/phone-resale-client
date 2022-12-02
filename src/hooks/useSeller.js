@@ -6,7 +6,9 @@ const useSeller = (email) => {
 
   useEffect(() => {
     if (email) {
-      fetch(`http://localhost:5000/allusers/seller/${email}`)
+      fetch(
+        `https://used-phone-resale-server.vercel.app/allusers/seller/${email}`
+      )
         .then((res) => res.json())
         .then((data) => {
           console.log(data);

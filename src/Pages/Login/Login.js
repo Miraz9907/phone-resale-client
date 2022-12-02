@@ -29,7 +29,9 @@ const Login = () => {
   }
   useEffect(() => {
     if (userLogin) {
-      fetch(`http://localhost:5000/jwt?email=${userLogin}`)
+      fetch(
+        `https://used-phone-resale-server.vercel.app/jwt?email=${userLogin}`
+      )
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
@@ -70,7 +72,7 @@ const Login = () => {
           email,
           role,
         };
-        fetch(`http://localhost:5000/user/${email}`, {
+        fetch(`https://used-phone-resale-server.vercel.app/user/${email}`, {
           method: "PUT",
           headers: {
             authorization: `bearer ${localStorage.getItem("accessToken")}`,

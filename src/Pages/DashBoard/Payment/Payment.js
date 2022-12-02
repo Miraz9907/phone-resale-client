@@ -13,9 +13,9 @@ const Payment = () => {
 
   return (
     <div>
-      <h3>{booking.model} ar jonno taka dy</h3>
+      <h3>You have to pay for {booking.model} </h3>
       <p className="text-xl">
-        Please pay <strong>{price}BDT</strong> for the purchase{" "}
+        Please pay <strong>{price}BDT</strong> for purchasing {booking.model}{" "}
         <strong>{model}</strong> at {location}
       </p>
       <div className="w-96 my-12">

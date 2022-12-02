@@ -7,7 +7,7 @@ const AllCategories = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/allcategories")
+      .get("https://used-phone-resale-server.vercel.app/allcategories")
       .then((data) => setAllCategories(data.data));
   }, []);
 

@@ -1,10 +1,13 @@
 import React from "react";
 import toast from "react-hot-toast";
+import { GoVerified } from "react-icons/go";
+
 
 const SingleCategory = ({ singleCategory, setPhoneModel, refetch }) => {
   //   console.log(singleCategory);
   const {
     _id,
+    verified,
     location,
     name,
     originalPrice,
@@ -19,7 +22,7 @@ const SingleCategory = ({ singleCategory, setPhoneModel, refetch }) => {
     toast.success("Successfully Reported!");
 
     console.log(id);
-    fetch(`http://localhost:5000/reportupdate/${id}`, {
+    fetch(`https://used-phone-resale-server.vercel.app/reportupdate/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -42,7 +45,13 @@ const SingleCategory = ({ singleCategory, setPhoneModel, refetch }) => {
       <div className="card-body font-semibold text-xl">
         <h2 className="card-title">
           {name}
-          <div className="badge badge-secondary">NEW</div>
+          {
+          verified!=='false'?
+          <>
+          <div className="badge badge-secondary"><GoVerified className="text-sky-500" /></div>
+          </>:<></>
+
+        }
         </h2>
         <h3> Seller Name: {sellerName}</h3>
         <p> Location: {location}</p>

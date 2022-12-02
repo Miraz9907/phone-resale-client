@@ -7,7 +7,9 @@ const AllBuyer = () => {
   const { data: allBuyer = [], refetch } = useQuery({
     queryKey: ["allusers"],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/allusers?role=${role}`);
+      const res = await fetch(
+        `https://used-phone-resale-server.vercel.app/allusers?role=${role}`
+      );
       const data = await res.json();
       return data;
     },
@@ -16,7 +18,7 @@ const AllBuyer = () => {
   const handleBuyerDelete = (id) => {
     const proceed = window.confirm("Are you sure? you want to delete ?");
     if (proceed) {
-      fetch(`http://localhost:5000/deleteuser/${id}`, {
+      fetch(`https://used-phone-resale-server.vercel.app/deleteuser/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -50,7 +52,7 @@ const AllBuyer = () => {
                   <td>{buyer.email}</td>
                   <td>
                     <button
-                      className="btn btn-xs text-red-400"
+                      className="btn btn-xs bg-red-400 text-black"
                       onClick={() => handleBuyerDelete(buyer._id)}
                     >
                       Delete

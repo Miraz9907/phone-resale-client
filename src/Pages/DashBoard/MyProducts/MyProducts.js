@@ -9,7 +9,7 @@ const MyProducts = () => {
     queryKey: ["allrole"],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/booked?email=${user?.email}`
+        `https://used-phone-resale-server.vercel.app/booked?email=${user?.email}`
       );
       const data = await res.json();
       return data;
@@ -18,7 +18,7 @@ const MyProducts = () => {
 
   const handleStatusUpdate = (id) => {
     console.log(id);
-    fetch(`http://localhost:5000/advertiseupdate/${id}`, {
+    fetch(`https://used-phone-resale-server.vercel.app/advertiseupdate/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -38,7 +38,7 @@ const MyProducts = () => {
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure? you want to delete ?");
     if (proceed) {
-      fetch(`http://localhost:5000/deleteproduct/${id}`, {
+      fetch(`https://used-phone-resale-server.vercel.app/deleteproduct/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

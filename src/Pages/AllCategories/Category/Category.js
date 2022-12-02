@@ -19,7 +19,7 @@ const Category = () => {
     queryKey: ["categories"],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/categories?category=${id}`
+        `https://used-phone-resale-server.vercel.app/categories?category=${id}`
       );
       const data = await res.json();
       return data;

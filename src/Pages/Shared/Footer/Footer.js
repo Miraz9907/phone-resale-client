@@ -54,7 +54,7 @@ const Footer = () => {
         </div>
       </footer>
       <div className="text-center mt-16 mb-5">
-        <p>Copyright © 2022 - All right reserved by ACME Industries Ltd</p>
+        <p>Copyright © 2023 - All right reserved by Phone Resale </p>
       </div>
     </div>
   );

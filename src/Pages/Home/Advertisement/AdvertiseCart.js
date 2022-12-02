@@ -1,11 +1,9 @@
 import React from "react";
-import { GoVerified } from "react-icons/go";
 
 const AdvertiseCart = ({ category }) => {
   const {
     name,
     picture,
-    verified,
     originalPrice,
     sellerName,
     resalePrice,
@@ -20,15 +18,6 @@ const AdvertiseCart = ({ category }) => {
       <div className="card-body">
         <h2 className="card-title">
           {name}
-          {verified !== "false" ? (
-            <>
-              <div className="badge badge-secondary">
-                <GoVerified className="text-white" />
-              </div>
-            </>
-          ) : (
-            <></>
-          )}
         </h2>
 
         <p>Resale Price: ${resalePrice}</p>
