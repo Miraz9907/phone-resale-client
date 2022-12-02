@@ -106,7 +106,7 @@ const SignUp = () => {
                 },
                 pattern: {
                   value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/,
-                  message: "password must be strong",
+                  message: "password must be A capital letter, and digit and one special charecter(!@#$&*)",
                 },
               })}
               className="input input-bordered w-full max-w-xs"
@@ -147,8 +147,7 @@ const SignUp = () => {
             Please Login
           </Link>
         </p>
-        {/* <div className="divider">OR</div>
-        <button className="btn btn-outline w-full">CONTINUE WITH GOOGLE</button> */}
+       
       </div>
     </div>
   );

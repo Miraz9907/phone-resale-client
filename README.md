@@ -1,6 +1,3 @@
-Email: miraz07@gmail.com <br/>
-pass: Miraz7$
-
 # Phone Resale
 
 - Phone Resale is a online based buying and puchasing website. Where a user can sell and buy their old phone. And also they can exchange their old with new phone.
