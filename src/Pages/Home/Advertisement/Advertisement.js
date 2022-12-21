@@ -17,7 +17,7 @@ const Advertisement = () => {
     <div>
       {mydata.length > 0 ? (
         <>
-          <h2 className="text-3xl text-center">Advertised Item</h2>
+          <h2 className="text-3xl text-center font-semibold text-secondary mt-16">Advertised Item</h2>
         </>
       ) : (
         <></>
